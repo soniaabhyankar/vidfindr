@@ -22,7 +22,7 @@ class App extends React.Component {
 			}
 		});
 
-		// console.log(response.data);
+		console.log(response.data);
 
 		this.setState({
 			videos: response.data.items,
@@ -35,11 +35,33 @@ class App extends React.Component {
 	}
 
 	render() {
+
+		if (window.matchMedia('(max-width: 920px)').matches) {
+			return (
+				<div className="ui container">
+					<h1>Vidfindr</h1>
+					<SearchBar onFormSubmit={this.onTermSubmit} />
+					<div className="ui grid">
+						<div className="ui row">
+							<div className="sixteen wide column">
+								<VideoDetail video={this.state.selectedVideo} />
+							</div>
+						</div>
+						<div className="ui row">
+							<div className="sixteen wide column">
+								<VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect} />
+							</div>
+						</div>
+					</div>
+					<footer>&copy; {new Date().getFullYear()} <a href="https://www.soniaabhyankar.com/" target="_blank" rel="noopener noreferrer">Sonia Abhyankar</a></footer>
+				</div>
+			);
+		}
 		return (
 			<div className="ui container">
 				<h1>Vidfindr</h1>
 				<SearchBar onFormSubmit={this.onTermSubmit} />
-				<div className="ui grid">
+				<div className="ui grid very relaxed">
 					<div className="ui row">
 						<div className="eleven wide column">
 							<VideoDetail video={this.state.selectedVideo} />
@@ -49,7 +71,7 @@ class App extends React.Component {
 						</div>
 					</div>
 				</div>
-
+				<footer>&copy; {new Date().getFullYear()} <a href="https://www.soniaabhyankar.com/" target="_blank" rel="noopener noreferrer">Sonia Abhyankar</a></footer>
 			</div>
 		)
 	}
