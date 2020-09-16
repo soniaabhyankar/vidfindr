@@ -1,4 +1,4 @@
-# Vidfindr - https://vidfindr.herokuapp.com/
+# Vidfindr
 
 A web application to search and play videos.
 
