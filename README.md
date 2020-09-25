@@ -13,9 +13,7 @@ A web application to search and play videos.
 1. Clone/Download this repository.
 2. Run `npm start` from Command Line.
 
-## Demo
-
----
+## Demo - https://vidfindr.netlify.app/
 
 ![demo](demo1.png)
 
